@@ -11,6 +11,7 @@ namespace PotterShoppingCart
         {
             {1, 1m },
             {2, 0.95m },
+            {3, 0.9m },
         };
 
         internal decimal GetPrice(IEnumerable<Book> books)
