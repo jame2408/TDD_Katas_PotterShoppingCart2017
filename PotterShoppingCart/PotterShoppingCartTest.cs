@@ -11,21 +11,24 @@ namespace PotterShoppingCart
         [TestMethod]
         public void No_Buy_Any_Books_Should_Be_0()
         {
+            CartPriceShouldBe(0, new List<Book>());
+        }
+
+        private void CartPriceShouldBe(decimal expected, IEnumerable<Book> books)
+        {
             var target = new Cart();
-            var actual = target.GetPrice(new List<Book>());
-            Assert.AreEqual(0, actual);
+            var actual = target.GetPrice(books);
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
         public void When_Buy_First_Book_Should_Be_100()
         {
-            var target = new Cart();
             var books = new List<Book>()
             {
                 new Book(){ ISBN = "1", Count = 1},
             };
-            var actual = target.GetPrice(books);
-            Assert.AreEqual(100, actual);
+            CartPriceShouldBe(100, books);
         }
 
     }
