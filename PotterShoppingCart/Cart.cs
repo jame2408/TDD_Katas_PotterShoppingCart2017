@@ -7,6 +7,11 @@ namespace PotterShoppingCart
     public class Cart
     {
         private const int UnitBookPrice = 100;
+        private readonly Dictionary<int, decimal> _discount = new Dictionary<int, decimal>()
+        {
+            {1, 1m },
+            {2, 0.95m },
+        };
 
         internal decimal GetPrice(IEnumerable<Book> books)
         {
@@ -15,13 +20,8 @@ namespace PotterShoppingCart
                 return 0;
             }
 
-            decimal discount = 1;
-            int qty = books.Count();
-            if (qty == 2)
-            {
-                discount = 0.95m;
-            }
-            return UnitBookPrice * books.Count() * discount;
+            var qty = books.Count();
+            return UnitBookPrice * qty * _discount[qty];
         }
     }
 }
