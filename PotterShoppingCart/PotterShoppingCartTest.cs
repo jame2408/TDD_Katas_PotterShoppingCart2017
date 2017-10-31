@@ -42,5 +42,17 @@ namespace PotterShoppingCart
             CartPriceShouldBe(190, books);
         }
 
+        [TestMethod]
+        public void When_Buy_Three_Difference_Books_Should_Be_270()
+        {
+            var books = new List<Book>()
+            {
+                new Book(){ ISBN = "1", Count = 1},
+                new Book(){ ISBN = "2", Count = 1},
+                new Book(){ ISBN = "3", Count = 1},
+            };
+            CartPriceShouldBe(270, books);
+        }
+
     }
 }
