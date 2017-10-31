@@ -7,7 +7,7 @@ namespace PotterShoppingCart
     {
         internal decimal GetPrice(IEnumerable<Book> books)
         {
-            throw new NotImplementedException();
+            return 0;
         }
     }
 }
