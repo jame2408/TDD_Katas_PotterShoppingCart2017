@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace PotterShoppingCart
 {
@@ -7,7 +8,11 @@ namespace PotterShoppingCart
     {
         internal decimal GetPrice(IEnumerable<Book> books)
         {
-            return 0;
+            if (!books.Any())
+            {
+                return 0;
+            }
+            return 100;
         }
     }
 }
