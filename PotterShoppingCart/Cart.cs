@@ -14,7 +14,14 @@ namespace PotterShoppingCart
             {
                 return 0;
             }
-            return UnitBookPrice;
+
+            decimal discount = 1;
+            int qty = books.Count();
+            if (qty == 2)
+            {
+                discount = 0.95m;
+            }
+            return UnitBookPrice * books.Count() * discount;
         }
     }
 }
